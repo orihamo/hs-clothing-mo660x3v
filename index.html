@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Cuckoonest | קן הקוקייה – מספרת גברים הרצליה</title>
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0R0DXEN11H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0R0DXEN11H');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Heebo:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ──────────────────────────────────────────────
+       ROOT & RESET
+    ────────────────────────────────────────────── */
+    :root {
+      --black:   #0d0d0d;
+      --dark:    #141414;
+      --card:    #1c1c1c;
+      --gold:    #c9a55a;
+      --gold2:   #e8c87a;
+      --cream:   #f5f0e6;
+      --white:   #ffffff;
+      --muted:   #888888;
+      --red:     #8b1a1a;
+      --border:  rgba(255,255,255,0.06);
+      --cfg-primary: #c9a55a;
+      --cfg-gold:    #e8c87a;
+      --cfg-cream:   #f5f0e6;
+      --cfg-accent:  #8b1a1a;
+    }
+
+    /* ── LIGHT MODE ── */
+    [data-theme="light"] {
+      --black:  #f5f0e6;
+      --dark:   #ede8dc;
+      --card:   #e5dfd0;
+      --cream:  #1a1208;
+      --muted:  #6b5f4a;
+      --border: rgba(0,0,0,0.08);
+    }
+    [data-theme="light"] body { background: var(--black); color: var(--cream); }
+    [data-theme="light"] nav { background: rgba(245,240,230,0.92); border-bottom: 1px solid rgba(0,0,0,0.08); }
+    [data-theme="light"] .nav-links a { color: #3a2e1a; }
+    [data-theme="light"] .nav-links a:hover, [data-theme="light"] .nav-cta { color: var(--gold) !important; }
+    [data-theme="light"] ::-webkit-scrollbar-track { background: var(--dark); }
+    [data-theme="light"] .contact-form { background: var(--card); border-color: rgba(0,0,0,0.1); }
+    [data-theme="light"] .contact-form input, [data-theme="light"] .contact-form textarea { background: var(--dark); border-color: rgba(0,0,0,0.15); color: var(--cream); }
+    [data-theme="light"] #stats { background: var(--dark); }
+    [data-theme="light"] .academy-feature { background: var(--card); }
+    [data-theme="light"] .hero-bg { opacity: 0.05; }
+
+    /* Theme toggle button */
+    #theme-toggle {
+      background: none; border: 1px solid rgba(201,165,90,0.3); border-radius: 20px;
+      cursor: pointer; padding: 0.3rem 0.7rem; font-size: 0.85rem;
+      color: var(--gold); transition: all 0.2s; display: flex; align-items: center; gap: 0.3rem;
+    }
+    #theme-toggle:hover { background: rgba(201,165,90,0.1); }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--black);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ──────────────────────────────────────────────
+       SCROLLBAR
+    ────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ──────────────────────────────────────────────
+       NAVBAR
+    ────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: transparent;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(13, 13, 13, 0.96);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 52px;
+      width: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .nav-logo-text .en {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-logo-text .he {
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--cream);
+      letter-spacing: 0.2em;
+      opacity: 0.7;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black) !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 2px;
+      font-weight: 600 !important;
+      transition: background 0.3s, transform 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold2) !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-cta::after { display: none !important; }
+
+    /* ──────────────────────────────────────────────
+       HERO
+    ────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.5) 60%, rgba(139,26,26,0.15) 100%),
+        url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1800&auto=format&fit=crop&q=80') center/cover no-repeat;
+    }
+
+    /* barber pole lines — decorative */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(201,165,90,0.03) 60px,
+        rgba(201,165,90,0.03) 62px
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 860px;
+      padding: 0 2rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding: 0.4rem 1.2rem;
+      border: 1px solid rgba(201,165,90,0.4);
+      border-radius: 20px;
+    }
+
+    .hero-title-en {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title-en span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-title-he {
+      font-family: 'Heebo', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 300;
+      color: var(--cream);
+      opacity: 0.85;
+      letter-spacing: 0.15em;
+      margin: 0.8rem 0 2rem;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 2rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--cream);
+      opacity: 0.75;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 2px;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(201,165,90,0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,165,90,0.5);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--cream);
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      padding: 1rem 2.5rem;
+      border-radius: 2px;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(245,240,230,0.4);
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.5;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll span {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ──────────────────────────────────────────────
+       STATS BAR
+    ────────────────────────────────────────────── */
+    #stats {
+      background: var(--card);
+      border-top: 1px solid rgba(201,165,90,0.15);
+      border-bottom: 1px solid rgba(201,165,90,0.15);
+      padding: 2.5rem 4rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+    }
+
+    .stat-item {
+      position: relative;
+      padding: 0.5rem 1rem;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: rgba(201,165,90,0.2);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ──────────────────────────────────────────────
+       SECTIONS SHARED
+    ────────────────────────────────────────────── */
+    section {
+      padding: 7rem 4rem;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .gold-line {
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    /* ──────────────────────────────────────────────
+       ABOUT
+    ────────────────────────────────────────────── */
+    #about {
+      background: var(--dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .about-img-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      left: -1.5rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 2px;
+    }
+
+    .about-img-badge .badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      display: block;
+    }
+
+    .about-img-badge .badge-text {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(245,240,230,0.75);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .about-features {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--cream);
+    }
+
+    .about-feature::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    /* ──────────────────────────────────────────────
+       SERVICES
+    ────────────────────────────────────────────── */
+    #services {
+      background: var(--black);
+      text-align: center;
+    }
+
+    .services-intro {
+      max-width: 560px;
+      margin: 0 auto 4rem;
+    }
+
+    .services-intro .gold-line {
+      margin: 0 auto 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(201,165,90,0.1);
+      border: 1px solid rgba(201,165,90,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 3rem 2rem;
+      position: relative;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      background: #222;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-name-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .service-price {
+      margin-top: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .service-price span {
+      font-size: 0.75rem;
+      font-weight: 300;
+      font-family: 'Heebo', sans-serif;
+      color: var(--muted);
+    }
+
+    /* ──────────────────────────────────────────────
+       GALLERY
+    ────────────────────────────────────────────── */
+    #gallery {
+      background: var(--dark);
+    }
+
+    .g-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .g-row-tall  { height: 420px; }
+    .g-row-short { height: 300px; }
+
+    .g-item {
+      overflow: hidden;
+      position: relative;
+      background: #111;
+    }
+
+    .g-item img,
+    .g-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .g-item:hover img,
+    .g-item:hover video {
+      transform: scale(1.04);
+    }
+
+    /* ──────────────────────────────────────────────
+       ACADEMY SECTION
+    ────────────────────────────────────────────── */
+    #academy {
+      background: var(--red);
+      padding: 5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .academy-text .section-label {
+      color: rgba(245,240,230,0.7);
+    }
+
+    .academy-text .section-title {
+      color: var(--cream);
+    }
+
+    .academy-text p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(245,240,230,0.8);
+      margin-bottom: 2rem;
+    }
+
+    .btn-light {
+      display: inline-block;
+      background: var(--cream);
+      color: var(--red);
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 2px;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-light:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .academy-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .academy-feature {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .academy-feature-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(245,240,230,0.15);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 2.5rem;
+    }
+
+    .academy-feature-text h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+
+    .academy-feature-text p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(245,240,230,0.65);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ──────────────────────────────────────────────
+       HOURS & CONTACT
+    ────────────────────────────────────────────── */
+    #contact {
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .contact-info {
+      padding: 7rem 4rem;
+      background: var(--dark);
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(201,165,90,0.1);
+      border: 1px solid rgba(201,165,90,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-body h4 {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-detail-body p {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
+    }
+
+    .contact-detail-body a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-detail-body a:hover {
+      color: var(--gold2);
+    }
+
+    .hours-grid {
+      padding: 7rem 4rem;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .hours-table tr {
+      border-bottom: 1px solid rgba(201,165,90,0.08);
+    }
+
+    .hours-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .hours-table td {
+      padding: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .hours-table td:first-child {
+      color: var(--cream);
+      font-weight: 400;
+    }
+
+    .hours-table td:last-child {
+      color: var(--muted);
+      font-weight: 300;
+      text-align: left;
+      direction: ltr;
+    }
+
+    .hours-table tr.today td {
+      color: var(--gold);
+    }
+
+    .hours-table tr.today td:first-child {
+      font-weight: 600;
+    }
+
+    .hours-today-badge {
+      display: inline-block;
+      background: rgba(201,165,90,0.15);
+      color: var(--gold);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      margin-right: 0.5rem;
+      border: 1px solid rgba(201,165,90,0.3);
+      vertical-align: middle;
+    }
+
+    /* Open/Closed status badge */
+    .shop-status-wrap {
+      margin-top: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.88rem;
+    }
+    .shop-status-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .status-open  .shop-status-dot { background: #4caf50; }
+    .status-closed .shop-status-dot { background: #e53935; animation: none; }
+    .status-holiday .shop-status-dot { background: var(--gold); animation: none; }
+    .status-open  .shop-status-text { color: #4caf50; }
+    .status-closed .shop-status-text { color: #e57373; }
+    .status-holiday .shop-status-text { color: var(--gold); }
+
+    /* ──────────────────────────────────────────────
+       MAP EMBED
+    ────────────────────────────────────────────── */
+    #map {
+      height: 380px;
+      background: var(--card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(80%) brightness(0.7) contrast(1.1);
+    }
+
+    #map::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.5);
+    }
+
+    /* ──────────────────────────────────────────────
+       FOOTER
+    ────────────────────────────────────────────── */
+    footer {
+      background: #080808;
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(201,165,90,0.1);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .footer-logo span {
+      display: block;
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      margin-top: 0.2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,165,90,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,165,90,0.08);
+    }
+
+    .footer-copy {
+      text-align: center;
+      padding: 1.2rem 4rem;
+      background: #080808;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.75rem;
+      color: var(--muted);
+      direction: ltr;
+    }
+
+    /* ──────────────────────────────────────────────
+       BARBER POLE SIDE DECORATION
+    ────────────────────────────────────────────── */
+    .pole {
+      position: fixed;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 120px;
+      border-radius: 4px;
+      overflow: hidden;
+      z-index: 50;
+      opacity: 0.4;
+    }
+
+    .pole-inner {
+      width: 100%;
+      height: 300%;
+      background: repeating-linear-gradient(
+        to bottom,
+        #cc2222 0px,
+        #cc2222 20px,
+        #ffffff 20px,
+        #ffffff 40px,
+        #0033cc 40px,
+        #0033cc 60px
+      );
+      animation: poleSpin 3s linear infinite;
+    }
+
+    @keyframes poleSpin {
+      from { transform: translateY(0); }
+      to { transform: translateY(-33.33%); }
+    }
+
+    /* ──────────────────────────────────────────────
+       FADE-IN ANIMATIONS
+    ────────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ──────────────────────────────────────────────
+       MOBILE
+    ────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      #about, #contact { grid-template-columns: 1fr; }
+      #stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 2rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .g-row { grid-template-columns: 1fr 1fr; }
+      .g-row-tall  { height: 420px; }
+      .g-row-short { height: 300px; }
+      #academy { grid-template-columns: 1fr; padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+      .pole { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── BARBER POLE DECORATION ─── -->
+<div class="pole"><div class="pole-inner"></div></div>
+
+<!-- ─── NAVBAR ─── -->
+<!-- ─── ANNOUNCEMENT BANNER ─── -->
+<div id="announcement-banner" style="display:none;position:relative;z-index:300;padding:0.6rem 3rem;text-align:center;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:600;">
+  <span id="announcement-text"></span>
+  <button id="announcement-close" onclick="document.getElementById('announcement-banner').style.display='none';localStorage.setItem('ann-dismissed','1');" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:inherit;font-size:1.2rem;opacity:0.7;">✕</button>
+</div>
+
+<!-- ─── PROMOTION BANNER ─── -->
+<div id="promo-banner" style="display:none;position:relative;z-index:299;padding:0.5rem 2rem;text-align:center;font-family:'Heebo',sans-serif;font-size:0.85rem;background:linear-gradient(135deg,#1a1a1a,#222);border-bottom:1px solid rgba(201,165,90,0.2);">
+  <span id="promo-badge" style="display:inline-block;background:var(--gold);color:#0d0d0d;font-weight:700;font-size:0.75rem;padding:0.15rem 0.6rem;border-radius:20px;margin-left:0.5rem;"></span>
+  <span id="promo-text" style="color:var(--cream);"></span>
+</div>
+
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="logo.jpg" alt="Cuckoonest Logo" />
+    <div class="nav-logo-text">
+      <span class="en" data-config="business_name_en">CUCKOONEST</span>
+      <span class="he" data-config="business_name_he">קן הקוקייה</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">אודות</a></li>
+    <li><a href="#services">שירותים</a></li>
+    <li><a href="#gallery">גלריה</a></li>
+    <li><a href="#academy">האקדמיה</a></li>
+    <li><a href="#contact">צור קשר</a></li>
+    <li><a href="#" data-config-href="calendly_url" target="_blank" class="nav-cta">קבע תור ✦</a></li>
+    <li><button id="theme-toggle" onclick="toggleTheme()" title="החלף מצב תצוגה">🌙</button></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <img src="logo.jpg" alt="Cuckoonest" style="display:block;width:120px;height:120px;border-radius:50%;margin:0 auto 1.5rem;object-fit:cover;border:2px solid rgba(201,165,90,0.4);box-shadow:0 0 40px rgba(201,165,90,0.2);" />
+    <div class="hero-badge" id="hero-badge" style="display:block;text-align:center;margin:0 auto 1.5rem;">✦ Since 1999 · הרצליה ✦</div>
+    <h1 class="hero-title-en">The <em>Art</em><br>of the Cut</h1>
+    <p class="hero-title-he" data-config="hero_subtitle">המספרה שהפכה לאגדה</p>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">
+      מספרת גברים פרימיום בלב הרצליה.<br>
+      תספורת היא לא רק עניין של שיער — זה אמנות, סגנון, וזהות.
+    </p>
+    <div class="hero-buttons">
+      <a href="https://calendly.com/yaniv-booking/haircut" target="_blank" class="btn-primary">קבע תור עכשיו ✦</a>
+      <a href="#about" class="btn-outline">הכר אותנו</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<div id="stats">
+  <!-- Populated by config.json via JS -->
+  <div class="stat-item fade-in">
+    <div class="stat-number">25+</div>
+    <div class="stat-label">שנות ניסיון</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-number">∞</div>
+    <div class="stat-label">לקוחות מרוצים</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-number">6</div>
+    <div class="stat-label">ימים בשבוע</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-number">1</div>
+    <div class="stat-label">מקום בהרצליה</div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="about-img-wrap fade-in">
+    <img
+      src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&auto=format&fit=crop&q=80"
+      alt="Cuckoonest Barbershop Interior"
+    />
+    <div class="about-img-badge">
+      <span class="badge-num" data-config="since_year">1999</span>
+      <span class="badge-text">Established</span>
+    </div>
+  </div>
+
+  <div class="about-text fade-in">
+    <div class="section-label">Our Story · הסיפור שלנו</div>
+    <h2 class="section-title" id="about-title">לא רק מספרה.<br><em>אגדה מקומית.</em></h2>
+    <div class="gold-line"></div>
+    <div id="about-body">
+    <p>
+      מאז <strong>1999</strong>, קן הקוקייה עומד בלב הרצליה כסמל לאיכות, מקצועיות, ואהבת המלאכה. מה שהתחיל כחלום קטן הפך לאחת המספרות האהובות והמוכרות בעיר.
+    </p>
+    <p>
+      אצלנו, כל תספורת היא חוויה שלמה. מהרגע שנכנסת דרך הדלת ועד שאתה יוצא עם הסגנון המושלם — <strong>אנחנו שם בשבילך</strong>.
+    </p>
+    <p>
+      אנחנו לא סתם חותכים שיער. אנחנו מעצבים זהות.
+    </p>
+    </div>
+    <div class="about-features">
+      <div class="about-feature">ספרים מוסמכים ומנוסים</div>
+      <div class="about-feature">אווירה ייחודית ונינוחה</div>
+      <div class="about-feature">מוצרים מקצועיים בלבד</div>
+      <div class="about-feature">ניסיון של 25+ שנה</div>
+      <div class="about-feature">תספורת, זקן ועיצוב</div>
+      <div class="about-feature">Walk-in & תורים</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="services-intro fade-in">
+    <div class="section-label">What We Do · מה אנחנו עושים</div>
+    <h2 class="section-title">השירותים <em>שלנו</em></h2>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="services-grid" id="services-grid">
+    <!-- Populated by config.json via JS -->
+    <div class="service-card fade-in">
+      <span class="service-icon">✂️</span>
+      <div class="service-name">תספורת גברים</div>
+      <p class="service-desc">תספורת קלאסית או מודרנית, מותאמת לצורת הפנים ולאישיות שלך.</p>
+      <div class="service-price">₪60 <span>ומעלה</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🪒</span>
+      <div class="service-name">עיצוב זקן</div>
+      <p class="service-desc">גילוח מסורתי, עיצוב מדויק, וטיפוח מקצועי לכל סוג זקן.</p>
+      <div class="service-price">₪40 <span>ומעלה</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">💈</span>
+      <div class="service-name">תספורת + זקן</div>
+      <p class="service-desc">החבילה המלאה — תספורת ועיצוב זקן ביחד, במחיר מועדף.</p>
+      <div class="service-price">₪90 <span>ומעלה</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">👦</span>
+      <div class="service-name">תספורת ילדים</div>
+      <p class="service-desc">טיפול עדין וסבלני לילדים עד גיל 12, בסביבה נעימה ומזמינה.</p>
+      <div class="service-price">₪45 <span>ומעלה</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🧴</span>
+      <div class="service-name">טיפול שיער</div>
+      <p class="service-desc">טיפולי לחות, שמנים, ומסכות לשיניים מקצועיות שיחזירו לשיערך את הברק.</p>
+      <div class="service-price">₪70 <span>ומעלה</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🎓</span>
+      <div class="service-name">קורסי ספרות</div>
+      <p class="service-desc">לימד את המלאכה מהמומחים. קורסים מקצועיים לכל הרמות.</p>
+      <div class="service-price">פנה <span>לפרטים</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+<section id="gallery" style="padding:7rem 0;">
+  <div class="gallery-header fade-in" style="padding:0 4rem 3rem;">
+    <div class="section-label">Our Work · העבודות שלנו</div>
+    <h2 class="section-title">הגלריה <em>שלנו</em></h2>
+  </div>
+
+  <!-- ROW 1: 4 columns, tall -->
+  <div class="g-row g-row-tall">
+    <div class="g-item">
+      <video class="lazy-video" muted loop playsinline preload="none" poster="media/thumb_4.jpg">
+        <source data-src="media/video_4.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="g-item">
+      <video class="lazy-video" muted loop playsinline preload="none" poster="media/thumb_5.jpg">
+        <source data-src="media/video_5.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="g-item">
+      <img src="media/thumb_6.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="g-item">
+      <img src="media/thumb_7.jpg" alt="" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- ROW 2: 4 columns, shorter -->
+  <div class="g-row g-row-short">
+    <div class="g-item">
+      <video class="lazy-video" muted loop playsinline preload="none" poster="media/thumb_8.jpg">
+        <source data-src="media/video_8.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="g-item">
+      <img src="media/thumb_9.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="g-item">
+      <video class="lazy-video" muted loop playsinline preload="none" poster="media/thumb_10.jpg">
+        <source data-src="media/video_10.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="g-item">
+      <video class="lazy-video" muted loop playsinline preload="none" poster="media/thumb_11.jpg">
+        <source data-src="media/video_11.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+
+  <p style="text-align:center;padding-top:2rem;font-size:0.85rem;color:var(--muted);">
+    @<a id="gallery-instagram-link" href="https://instagram.com/_cuckoonest_" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600;">_cuckoonest_</a>
+  </p>
+</section>
+
+<!-- ─── ACADEMY ─── -->
+<section id="academy">
+  <div class="academy-text fade-in">
+    <div class="section-label">Learn · למד</div>
+    <h2 class="section-title" style="color:var(--cream);">האקדמיה <em style="color:rgba(245,240,230,0.6);font-style:italic;">שלנו</em></h2>
+    <div class="gold-line" style="background:rgba(245,240,230,0.4);"></div>
+    <p>
+      רוצה להפוך את התשוקה שלך לקריירה? האקדמיה של קן הקוקייה מציעה קורסי ספרות מקצועיים בהוראה צמודה של המומחים שלנו. לימוד אמיתי, מעשי, ומהיר.
+    </p>
+    <a href="tel:0995889073" class="btn-light">פנה אלינו לפרטים</a>
+  </div>
+
+  <div class="academy-features fade-in">
+    <div class="academy-feature">
+      <div class="academy-feature-num">01</div>
+      <div class="academy-feature-text">
+        <h4>לימוד מעשי מהיום הראשון</h4>
+        <p>אין תיאוריה מיותרת. נכנסים לעבודה מהרגע הראשון עם הדרכה צמודה.</p>
+      </div>
+    </div>
+    <div class="academy-feature">
+      <div class="academy-feature-num">02</div>
+      <div class="academy-feature-text">
+        <h4>מורים עם ניסיון של עשרות שנים</h4>
+        <p>הצוות שלנו מלמד את מה שהוא עושה בפועל, כל יום.</p>
+      </div>
+    </div>
+    <div class="academy-feature">
+      <div class="academy-feature-num">03</div>
+      <div class="academy-feature-text">
+        <h4>תעודה מקצועית מוכרת</h4>
+        <p>בסוף הקורס תקבל תעודה שתפתח לך דלתות בכל מספרה בישראל.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TEAM ─── -->
+<section id="team" style="display:none;padding:7rem 0;background:var(--black);">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-label">The Team · הצוות</div>
+      <h2 class="section-title">הצוות <em>שלנו</em></h2>
+      <div class="gold-line" style="margin:0 auto;"></div>
+    </div>
+    <div id="team-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2rem;"></div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq" style="display:none;padding:7rem 0;background:var(--dark);">
+  <div style="max-width:800px;margin:0 auto;padding:0 2rem;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-label">FAQ · שאלות נפוצות</div>
+      <h2 class="section-title">שאלות <em>נפוצות</em></h2>
+      <div class="gold-line" style="margin:0 auto;"></div>
+    </div>
+    <div id="faq-list" style="space-y:1rem;"></div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section id="reviews" style="padding:7rem 0;background:var(--dark);">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-label">Reviews · ביקורות</div>
+      <h2 class="section-title">מה אומרים <em>עלינו</em></h2>
+      <div class="gold-line" style="margin:0 auto;"></div>
+    </div>
+    <div id="reviews-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;"></div>
+    <div id="reviews-cta" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:3rem;"></div>
+  </div>
+</section>
+
+<!-- ─── CONTACT + HOURS ─── -->
+<section id="contact">
+  <div class="contact-info fade-in">
+    <div class="section-label">Find Us · מצא אותנו</div>
+    <h2 class="section-title">צור <em>קשר</em></h2>
+    <div class="gold-line"></div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📍</div>
+      <div class="contact-detail-body">
+        <h4>כתובת</h4>
+        <p data-config="address">סוקולוב 55, הרצליה</p>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📞</div>
+      <div class="contact-detail-body">
+        <h4>טלפון</h4>
+        <p><a id="phone-link" href="tel:0525070507" data-config="phone">052-507-0507</a></p>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">✉️</div>
+      <div class="contact-detail-body">
+        <h4>אימייל</h4>
+        <p><a id="email-link" href="mailto:ys.hairboutique@gmail.com" data-config="email">ys.hairboutique@gmail.com</a></p>
+      </div>
+    </div>
+
+    <div class="contact-detail" id="instagram-detail">
+      <div class="contact-detail-icon">📸</div>
+      <div class="contact-detail-body">
+        <h4>אינסטגרם</h4>
+        <p><a id="instagram-link" href="https://instagram.com/_cuckoonest_" target="_blank">@_cuckoonest_</a></p>
+      </div>
+    </div>
+
+    <div class="contact-detail" id="facebook-detail">
+      <div class="contact-detail-icon">📘</div>
+      <div class="contact-detail-body">
+        <h4>פייסבוק</h4>
+        <p><a id="facebook-link" href="https://facebook.com/CuckoonestBarbers" target="_blank">Cuckoonest Barbers</a></p>
+      </div>
+    </div>
+
+    <a id="calendly-btn" href="https://calendly.com/yaniv-booking/haircut" target="_blank" class="btn-primary" style="margin-top:1rem;display:inline-block;">
+      📅 קבע תור אונליין
+    </a>
+    <a id="whatsapp-btn" href="#" target="_blank" style="display:none;margin-top:0.75rem;margin-right:0.75rem;align-items:center;gap:0.5rem;background:#25D366;color:#fff;font-family:'Heebo',sans-serif;font-weight:700;font-size:0.9rem;padding:0.7rem 1.4rem;border-radius:50px;text-decoration:none;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      שלח WhatsApp
+    </a>
+  </div>
+
+  <div id="contact-form-wrap" class="contact-form fade-in" style="display:none;">
+    <h3>📩 שלח לנו הודעה</h3>
+    <input type="text" id="cf-name" placeholder="שם מלא *" required />
+    <input type="tel" id="cf-phone" placeholder="טלפון" dir="ltr" />
+    <input type="email" id="cf-email" placeholder="אימייל" dir="ltr" />
+    <textarea id="cf-message" placeholder="הודעה *" required></textarea>
+    <button onclick="submitContactForm()">שלח הודעה</button>
+    <p class="form-success" id="cf-success">✅ ההודעה נשלחה בהצלחה!</p>
+  </div>
+
+  <div class="hours-grid fade-in">
+    <div class="section-label">Hours · שעות פעילות</div>
+    <h2 class="section-title">מתי <em>אנחנו פתוחים?</em></h2>
+    <div class="gold-line"></div>
+
+    <table class="hours-table" id="hours-table">
+      <!-- Populated by config.json via JS -->
+      <tbody id="hours-tbody">
+        <tr>
+          <td>ראשון</td>
+          <td>10:00 – 20:00</td>
+        </tr>
+        <tr>
+          <td>שני</td>
+          <td>10:00 – 20:00</td>
+        </tr>
+        <tr>
+          <td>שלישי</td>
+          <td>10:00 – 20:00</td>
+        </tr>
+        <tr>
+          <td>רביעי</td>
+          <td>10:00 – 20:00</td>
+        </tr>
+        <tr>
+          <td>חמישי</td>
+          <td>10:00 – 20:00</td>
+        </tr>
+        <tr>
+          <td>שישי</td>
+          <td>09:00 – 14:00</td>
+        </tr>
+        <tr>
+          <td>שבת</td>
+          <td style="color:#555;">סגור</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Live open/closed status -->
+    <div id="shop-status-wrap" class="shop-status-wrap">
+      <span class="shop-status-dot"></span>
+      <span id="shop-status-text" class="shop-status-text">בודק שעות...</span>
+    </div>
+
+    <p style="margin-top:1.4rem;font-size:0.82rem;color:var(--muted);line-height:1.7;">
+      * ניתן להגיע Walk-in בכפוף לזמינות, או לקבוע תור מראש בטלפון.<br>
+      * סגורים בשבתות, חגים ומועדים לפי לוח השנה העברי.
+    </p>
+  </div>
+</section>
+
+<!-- ─── MAP ─── -->
+<div id="map">
+  <iframe
+    id="map-iframe"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.6!2d34.8427!3d32.1657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b9b3e7e3c3f%3A0x0!2sSokolov+55%2C+Herzliya%2C+Israel!5e0!3m2!1siw!2sil!4v1"
+    loading="lazy"
+    allowfullscreen
+    title="Map"
+  ></iframe>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo" style="display:flex;align-items:center;gap:0.8rem;">
+    <img src="logo.jpg" alt="Cuckoonest" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+    <div>
+      <span data-config="business_name_en">CUCKOONEST</span>
+      <span id="footer-sub" data-config-footer>קן הקוקייה · הרצליה</span>
+    </div>
+  </div>
+
+  <ul class="footer-links">
+    <li><a href="#about">אודות</a></li>
+    <li><a href="#services">שירותים</a></li>
+    <li><a href="#gallery">גלריה</a></li>
+    <li><a href="#academy">אקדמיה</a></li>
+    <li><a href="#contact">צור קשר</a></li>
+  </ul>
+
+  <div class="footer-social">
+    <a id="footer-instagram" href="https://instagram.com/_cuckoonest_" target="_blank" class="social-btn" title="Instagram">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a id="footer-facebook" href="https://facebook.com/CuckoonestBarbers" target="_blank" class="social-btn" title="Facebook">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a id="footer-phone" href="tel:0525070507" class="social-btn" title="Phone">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+  </div>
+</footer>
+
+<div class="footer-copy" id="footer-copy">
+  © 2025 Cuckoonest | קן הקוקייה · סוקולוב 55, הרצליה · כל הזכויות שמורות
+</div>
+
+<!-- ─── FLOATING BOOK BUTTON ─── -->
+<a href="#" id="float-whatsapp" target="_blank" title="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<a href="https://calendly.com/yaniv-booking/haircut" target="_blank" id="float-book" data-config-href="calendly_url">
+  <span>📅</span> קבע תור
+</a>
+
+<style>
+  #float-book {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 200;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 25px rgba(201,165,90,0.5);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    letter-spacing: 0.05em;
+  }
+  #float-book:hover {
+    background: var(--gold2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 35px rgba(201,165,90,0.6);
+  }
+  @media (max-width: 900px) {
+    #float-book { bottom: 1rem; left: 1rem; font-size: 0.85rem; padding: 0.7rem 1.2rem; }
+    #float-whatsapp { bottom: 5rem; left: 1rem; }
+  }
+  #float-whatsapp {
+    position: fixed;
+    bottom: 5.5rem;
+    left: 2rem;
+    z-index: 200;
+    background: #25D366;
+    color: #fff;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+  }
+  #float-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
+  .contact-form { background: #1c1c1c; border: 1px solid rgba(201,165,90,0.15); border-radius: 16px; padding: 2rem; margin-top: 1.5rem; }
+  .contact-form h3 { color: var(--cream); font-size: 1.1rem; margin-bottom: 1.2rem; }
+  .contact-form input, .contact-form textarea {
+    width: 100%; padding: 0.7rem 1rem; background: #141414; border: 1px solid #2a2a2a;
+    border-radius: 8px; color: var(--cream); font-family: 'Heebo', sans-serif; font-size: 0.9rem;
+    margin-bottom: 0.75rem; outline: none; transition: border-color 0.2s;
+  }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
+  .contact-form textarea { height: 100px; resize: vertical; }
+  .contact-form button {
+    background: var(--gold); color: var(--black); font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.9rem; padding: 0.75rem 2rem; border-radius: 50px;
+    border: none; cursor: pointer; transition: background 0.2s;
+  }
+  .contact-form button:hover { background: var(--gold2); }
+  .contact-form .form-success { color: #4ade80; margin-top: 0.75rem; display: none; }
+</style>
+
+<!-- ─── CONFIG LOADER ─── -->
+<script>
+(function () {
+  'use strict';
+
+  // Day keys in config.json order (sun..sat)
+  const DAY_KEYS  = ['sun','mon','tue','wed','thu','fri','sat'];
+  const DAY_HE    = ['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+
+  function applyConfig(cfg) {
+    // ── CSS custom properties (colors) ──
+    if (cfg.colors) {
+      const r = document.documentElement.style;
+      if (cfg.colors.primary) { r.setProperty('--gold',  cfg.colors.primary); r.setProperty('--cfg-primary', cfg.colors.primary); }
+      if (cfg.colors.gold)    { r.setProperty('--gold2', cfg.colors.gold);    r.setProperty('--cfg-gold',    cfg.colors.gold); }
+      if (cfg.colors.cream)   { r.setProperty('--cream', cfg.colors.cream);   r.setProperty('--cfg-cream',   cfg.colors.cream); }
+      if (cfg.colors.accent)  { r.setProperty('--red',   cfg.colors.accent);  r.setProperty('--cfg-accent',  cfg.colors.accent); }
+    }
+
+    // ── Simple text fields via data-config ──
+    document.querySelectorAll('[data-config]').forEach(function(el) {
+      var key = el.getAttribute('data-config');
+      if (cfg[key] !== undefined && cfg[key] !== null) {
+        el.textContent = String(cfg[key]);
+      }
+    });
+
+    // ── Href fields via data-config-href ──
+    document.querySelectorAll('[data-config-href]').forEach(function(el) {
+      var key = el.getAttribute('data-config-href');
+      if (cfg[key]) el.href = cfg[key];
+    });
+
+    // ── Page title ──
+    if (cfg.business_name_en && cfg.business_name_he) {
+      document.getElementById('page-title').textContent =
+        cfg.business_name_en + ' | ' + cfg.business_name_he;
+    }
+
+    // ── Hero badge ──
+    var badge = document.getElementById('hero-badge');
+    if (badge) {
+      var city = cfg.city || cfg.address || '';
+      badge.textContent = '\u2736 Since ' + (cfg.since_year || '') + ' \u00B7 ' + city + ' \u2736';
+    }
+
+    // ── About title (split on period for italic effect) ──
+    if (cfg.about_title) {
+      var at = document.getElementById('about-title');
+      if (at) at.textContent = cfg.about_title;
+    }
+
+    // ── About body paragraphs ──
+    if (cfg.about_body) {
+      var ab = document.getElementById('about-body');
+      if (ab) {
+        ab.innerHTML = '';
+        cfg.about_body.split('\n\n').forEach(function(para) {
+          if (para.trim()) {
+            var p = document.createElement('p');
+            p.innerHTML = para.trim().replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            ab.appendChild(p);
+          }
+        });
+      }
+    }
+
+    // ── Stats bar ──
+    if (Array.isArray(cfg.stats) && cfg.stats.length) {
+      var statsEl = document.getElementById('stats');
+      if (statsEl) {
+        statsEl.innerHTML = '';
+        cfg.stats.forEach(function(s) {
+          var div = document.createElement('div');
+          div.className = 'stat-item fade-in';
+          div.innerHTML = '<div class="stat-number">' + s.value + '</div>' +
+                          '<div class="stat-label">' + s.label_he + '</div>';
+          statsEl.appendChild(div);
+        });
+        // Re-observe new elements
+        document.querySelectorAll('#stats .fade-in').forEach(function(el) {
+          if (window.__fadeObserver) window.__fadeObserver.observe(el);
+        });
+      }
+    }
+
+    // ── Services grid ──
+    if (Array.isArray(cfg.services) && cfg.services.length) {
+      var grid = document.getElementById('services-grid');
+      if (grid) {
+        grid.innerHTML = '';
+        cfg.services.forEach(function(s) {
+          var card = document.createElement('div');
+          card.className = 'service-card fade-in';
+          card.innerHTML =
+            '<span class="service-icon">' + (s.icon_emoji || '') + '</span>' +
+            '<div class="service-name">' + s.title_he + '</div>' +
+            '<p class="service-desc">' + s.desc_he + '</p>' +
+            (s.price ? '<div class="service-price">' + s.price + (s.price_suffix ? ' <span>' + s.price_suffix + '</span>' : '') + '</div>' : '');
+          grid.appendChild(card);
+        });
+        document.querySelectorAll('#services-grid .fade-in').forEach(function(el) {
+          if (window.__fadeObserver) window.__fadeObserver.observe(el);
+        });
+      }
+    }
+
+    // ── Contact details ──
+    if (cfg.address) {
+      document.querySelectorAll('[data-config="address"]').forEach(function(el) {
+        el.textContent = cfg.address;
+      });
+    }
+    var phoneLink = document.getElementById('phone-link');
+    if (phoneLink && cfg.phone) {
+      phoneLink.textContent = cfg.phone;
+      phoneLink.href = 'tel:' + cfg.phone.replace(/\D/g, '');
+    }
+    var emailLink = document.getElementById('email-link');
+    if (emailLink && cfg.email) {
+      emailLink.textContent = cfg.email;
+      emailLink.href = 'mailto:' + cfg.email;
+    }
+    var igLink = document.getElementById('instagram-link');
+    if (igLink && cfg.instagram_url) {
+      igLink.href = cfg.instagram_url;
+      var igUser = cfg.instagram_username || cfg.instagram_url.split('/').filter(Boolean).pop();
+      igLink.textContent = '@' + igUser;
+    }
+    if (!cfg.instagram_url) {
+      var igDetail = document.getElementById('instagram-detail');
+      if (igDetail) igDetail.style.display = 'none';
+    }
+    var fbLink = document.getElementById('facebook-link');
+    if (fbLink && cfg.facebook_url) {
+      fbLink.href = cfg.facebook_url;
+    }
+    if (!cfg.facebook_url) {
+      var fbDetail = document.getElementById('facebook-detail');
+      if (fbDetail) fbDetail.style.display = 'none';
+    }
+    var calendlyBtn = document.getElementById('calendly-btn');
+    if (calendlyBtn && cfg.calendly_url) {
+      calendlyBtn.href = cfg.calendly_url;
+    }
+    if (!cfg.calendly_url) {
+      if (calendlyBtn) calendlyBtn.style.display = 'none';
+    }
+
+    // ── Hours table ──
+    if (cfg.hours) {
+      var tbody = document.getElementById('hours-tbody');
+      if (tbody) {
+        tbody.innerHTML = '';
+        DAY_KEYS.forEach(function(key, idx) {
+          var val = cfg.hours[key] || 'סגור';
+          var tr = document.createElement('tr');
+          var td1 = document.createElement('td');
+          td1.textContent = DAY_HE[idx];
+          var td2 = document.createElement('td');
+          td2.textContent = val;
+          if (val === 'סגור') td2.style.color = '#555';
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    // ── Map iframe ──
+    var mapIframe = document.getElementById('map-iframe');
+    if (mapIframe && cfg.map_query) {
+      mapIframe.src = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyD-placeholder&q=' + cfg.map_query;
+      // Fallback to the search embed (no API key needed)
+      mapIframe.src = 'https://maps.google.com/maps?q=' + cfg.map_query + '&output=embed';
+    }
+
+    // ── Footer ──
+    var footerSub = document.getElementById('footer-sub');
+    if (footerSub && cfg.business_name_he) {
+      footerSub.textContent = cfg.business_name_he + (cfg.city ? ' \u00B7 ' + cfg.city : '');
+    }
+    var footerCopy = document.getElementById('footer-copy');
+    if (footerCopy && cfg.business_name_en && cfg.business_name_he) {
+      var yr = new Date().getFullYear();
+      footerCopy.textContent = '\u00A9 ' + yr + ' ' + cfg.business_name_en +
+        ' | ' + cfg.business_name_he +
+        (cfg.address ? ' \u00B7 ' + cfg.address : '') +
+        ' \u00B7 \u05DB\u05DC \u05D4\u05D6\u05DB\u05D5\u05D9\u05D5\u05EA \u05E9\u05DE\u05D5\u05E8\u05D5\u05EA';
+    }
+
+    // ── Footer social links ──
+    var footerIg = document.getElementById('footer-instagram');
+    if (footerIg && cfg.instagram_url) footerIg.href = cfg.instagram_url;
+    var footerFb = document.getElementById('footer-facebook');
+    if (footerFb && cfg.facebook_url) footerFb.href = cfg.facebook_url;
+    var footerPhone = document.getElementById('footer-phone');
+    if (footerPhone && cfg.phone) footerPhone.href = 'tel:' + cfg.phone.replace(/\D/g, '');
+
+    // ── Gallery instagram link ──
+    var galIgLink = document.getElementById('gallery-instagram-link');
+    if (galIgLink && cfg.instagram_url) {
+      galIgLink.href = cfg.instagram_url;
+      var igU = cfg.instagram_username || cfg.instagram_url.split('/').filter(Boolean).pop();
+      galIgLink.textContent = igU;
+    }
+
+    // ── SEO meta tags ──
+    if (cfg.seo) {
+      if (cfg.seo.title) document.title = cfg.seo.title;
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) { metaDesc = document.createElement('meta'); metaDesc.setAttribute('name','description'); document.head.appendChild(metaDesc); }
+      if (cfg.seo.description) metaDesc.setAttribute('content', cfg.seo.description);
+      var metaKw = document.querySelector('meta[name="keywords"]');
+      if (!metaKw) { metaKw = document.createElement('meta'); metaKw.setAttribute('name','keywords'); document.head.appendChild(metaKw); }
+      if (cfg.seo.keywords) metaKw.setAttribute('content', cfg.seo.keywords);
+    }
+
+    // ── Announcement banner ──
+    if (cfg.announcement && cfg.announcement.active && cfg.announcement.text) {
+      var notDismissed = !localStorage.getItem('ann-dismissed');
+      var notExpired = !cfg.announcement.expires || new Date(cfg.announcement.expires) > new Date();
+      if (notDismissed && notExpired) {
+        var banner = document.getElementById('announcement-banner');
+        var colors = { gold: { bg:'#c9a55a', color:'#0d0d0d' }, red: { bg:'#8b1a1a', color:'#fff' }, blue: { bg:'#1e3a5f', color:'#fff' }, green: { bg:'#1a4a2e', color:'#fff' } };
+        var c = colors[cfg.announcement.color] || colors.gold;
+        banner.style.background = c.bg;
+        banner.style.color = c.color;
+        document.getElementById('announcement-text').textContent = cfg.announcement.text;
+        banner.style.display = 'block';
+      }
+    }
+
+    // ── Promotion banner ──
+    if (cfg.promotion && cfg.promotion.active && cfg.promotion.text) {
+      var promoNotExpired = !cfg.promotion.expires || new Date(cfg.promotion.expires) > new Date();
+      if (promoNotExpired) {
+        document.getElementById('promo-badge').textContent = cfg.promotion.badge || '';
+        document.getElementById('promo-text').textContent = cfg.promotion.text;
+        document.getElementById('promo-banner').style.display = 'block';
+      }
+    }
+
+    // ── Default theme from config ──
+    var savedTheme = localStorage.getItem('site-theme') || cfg.default_theme || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    var toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) toggleBtn.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+    // ── WhatsApp ──
+    if (cfg.whatsapp_number) {
+      var waNum = cfg.whatsapp_number.replace(/\D/g,'');
+      // Handle: 972525..., 0525..., or 525...
+      if (waNum.startsWith('972')) waNum = waNum.slice(3);
+      else if (waNum.startsWith('0')) waNum = waNum.slice(1);
+      var waMsg = encodeURIComponent(cfg.whatsapp_message || 'שלום, אשמח לקבל מידע נוסף');
+      var waUrl = 'https://wa.me/972' + waNum + '?text=' + waMsg;
+      var floatWa = document.getElementById('float-whatsapp');
+      if (floatWa) { floatWa.href = waUrl; floatWa.style.display = 'flex'; }
+      var inlineWa = document.getElementById('whatsapp-btn');
+      if (inlineWa) { inlineWa.href = waUrl; inlineWa.style.display = 'inline-flex'; }
+    }
+
+    // ── Team section ──
+    if (cfg.team && cfg.team.length > 0) {
+      var teamGrid = document.getElementById('team-grid');
+      var teamSection = document.getElementById('team');
+      if (teamGrid && teamSection) {
+        teamSection.style.display = '';
+        cfg.team.forEach(function(member) {
+          var card = document.createElement('div');
+          card.style.cssText = 'text-align:center;';
+          card.innerHTML = (member.photo
+            ? '<img src="' + member.photo + '" alt="' + member.name + '" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid rgba(201,165,90,0.3);margin:0 auto 1rem;display:block;">'
+            : '<div style="width:120px;height:120px;border-radius:50%;background:#2a2a2a;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + member.name.charAt(0) + '</div>')
+            + '<h3 style="color:var(--cream);font-size:1rem;margin-bottom:0.25rem;">' + member.name + '</h3>'
+            + '<p style="color:var(--gold);font-size:0.85rem;margin-bottom:0.5rem;">' + member.role + '</p>'
+            + (member.bio ? '<p style="color:#888;font-size:0.8rem;line-height:1.5;">' + member.bio + '</p>' : '');
+          teamGrid.appendChild(card);
+        });
+      }
+    }
+
+    // ── FAQ section ──
+    if (cfg.faq && cfg.faq.length > 0) {
+      var faqList = document.getElementById('faq-list');
+      var faqSection = document.getElementById('faq');
+      if (faqList && faqSection) {
+        faqSection.style.display = '';
+        cfg.faq.forEach(function(item, idx) {
+          var el = document.createElement('div');
+          el.style.cssText = 'border:1px solid #2a2a2a;border-radius:10px;margin-bottom:0.75rem;overflow:hidden;';
+          el.innerHTML = '<button onclick="var a=this.nextElementSibling;a.style.display=a.style.display===\'block\'?\'none\':\'block\';this.querySelector(\'span\').textContent=a.style.display===\'block\'?\'−\':\'+'+'\';" style="width:100%;text-align:right;padding:1rem 1.25rem;background:#1c1c1c;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--cream);font-family:Heebo,sans-serif;font-size:0.95rem;font-weight:600;">'
+            + item.question + '<span style="color:var(--gold);font-size:1.2rem;margin-right:1rem;">+</span></button>'
+            + '<div style="display:none;padding:1rem 1.25rem;background:#141414;color:#aaa;font-size:0.9rem;line-height:1.6;">' + item.answer + '</div>';
+          faqList.appendChild(el);
+        });
+      }
+    }
+
+    // ── Contact form ──
+    if (cfg.client_id && cfg.contact_endpoint) {
+      var formWrap = document.getElementById('contact-form-wrap');
+      if (formWrap) formWrap.style.display = 'block';
+      window.__contactCfg = { client_id: cfg.client_id, endpoint: cfg.contact_endpoint };
+    }
+
+    // ── Logo ──
+    if (cfg.logo_url) {
+      document.querySelectorAll('.nav-logo img, .footer-logo img').forEach(function(img) {
+        img.src = cfg.logo_url;
+        img.alt = cfg.business_name_en || cfg.business_name || '';
+      });
+    }
+
+    // ── Sections: hide disabled ones ──
+    if (cfg.sections_enabled) {
+      Object.keys(cfg.sections_enabled).forEach(function(key) {
+        if (!cfg.sections_enabled[key]) {
+          var el = document.getElementById(key);
+          if (el) el.style.display = 'none';
+        }
+      });
+    }
+
+    // ── Sections: reorder in DOM ──
+    if (cfg.sections_order && cfg.sections_order.length > 0) {
+      var bodyEl = document.body;
+      cfg.sections_order.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) bodyEl.appendChild(el);
+      });
+      // Move nav back to top
+      var nav = document.querySelector('nav');
+      if (nav) bodyEl.insertBefore(nav, bodyEl.firstChild);
+      // Move footer back to bottom
+      var footer = document.querySelector('footer');
+      if (footer) bodyEl.appendChild(footer);
+      // Move floating book button after footer
+      var floatBtn = document.getElementById('float-book');
+      if (floatBtn) bodyEl.appendChild(floatBtn);
+    }
+  }
+
+  // Contact form submit
+  window.submitContactForm = function() {
+    var cfg = window.__contactCfg;
+    if (!cfg) return;
+    var name = document.getElementById('cf-name').value.trim();
+    var message = document.getElementById('cf-message').value.trim();
+    if (!name || !message) { alert('נא למלא שם והודעה'); return; }
+    var btn = document.querySelector('.contact-form button');
+    btn.disabled = true; btn.textContent = 'שולח...';
+    fetch(cfg.endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        client_id: cfg.client_id,
+        name: name,
+        phone: document.getElementById('cf-phone').value.trim(),
+        email: document.getElementById('cf-email').value.trim(),
+        message: message,
+      }),
+    }).then(function(r) {
+      if (r.ok) {
+        document.getElementById('cf-success').style.display = 'block';
+        ['cf-name','cf-phone','cf-email','cf-message'].forEach(function(id) { document.getElementById(id).value = ''; });
+      } else { alert('שגיאה בשליחה, נסה שוב'); }
+    }).catch(function() { alert('שגיאה בשליחה, נסה שוב'); })
+    .finally(function() { btn.disabled = false; btn.textContent = 'שלח הודעה'; });
+  };
+
+  // Load config.json and apply
+  fetch('config.json')
+    .then(function(r) { return r.json(); })
+    .then(function(cfg) {
+      applyConfig(cfg);
+      // Re-evaluate open/closed status with config hours
+      if (window.__applyOpenStatus) window.__applyOpenStatus(cfg.hours);
+    })
+    .catch(function(e) { console.warn('config.json load failed:', e); });
+})();
+</script>
+
+<!-- ─── REVIEWS LOADER ─── -->
+<script>
+(function() {
+  var PLATFORM_ICONS = {
+    google:   { label: 'Google',     color: '#4285F4', svg: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>' },
+    facebook: { label: 'Facebook',   color: '#1877F2', svg: '<svg width="14" height="14" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>' },
+    easy:     { label: 'Easy.co.il', color: '#FF6B00', svg: '<svg width="14" height="14" viewBox="0 0 24 24" fill="#FF6B00"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">e</text></svg>' },
+    manual:   { label: '',           color: '#c9a55a', svg: '' },
+  };
+
+  function renderStars(rating) {
+    var html = '';
+    for (var i = 1; i <= 5; i++) {
+      html += '<svg width="13" height="13" viewBox="0 0 24 24" fill="' + (i <= rating ? '#c9a55a' : '#333') + '"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+    }
+    return html;
+  }
+
+  function renderReview(r) {
+    var plat = PLATFORM_ICONS[r.platform] || PLATFORM_ICONS.manual;
+    var avatarHtml = r.profile_photo
+      ? '<img src="' + r.profile_photo + '" style="width:42px;height:42px;border-radius:50%;object-fit:cover;" />'
+      : '<div style="width:42px;height:42px;border-radius:50%;background:#2a2a2a;display:flex;align-items:center;justify-content:center;color:#c9a55a;font-weight:bold;font-size:16px;">' + r.author.charAt(0) + '</div>';
+
+    return '<div style="background:#1c1c1c;border:1px solid #2a2a2a;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;gap:0.8rem;">'
+      + '<div style="display:flex;align-items:center;gap:0.75rem;">'
+      + avatarHtml
+      + '<div style="flex:1;min-width:0;">'
+      + '<div style="font-weight:600;font-size:0.9rem;color:#f5f0e6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + r.author + '</div>'
+      + '<div style="display:flex;align-items:center;gap:0.5rem;margin-top:2px;">'
+      + renderStars(r.rating)
+      + (plat.svg ? '<span style="margin-right:4px;">' + plat.svg + '</span>' : '')
+      + '</div>'
+      + '</div>'
+      + '</div>'
+      + '<p style="font-size:0.88rem;color:#aaa;line-height:1.6;margin:0;">' + r.text + '</p>'
+      + (r.url ? '<a href="' + r.url + '" target="_blank" style="font-size:0.75rem;color:#c9a55a;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">קרא עוד →</a>' : '')
+      + '</div>';
+  }
+
+  function renderCTAButton(label, url, color) {
+    return '<a href="' + url + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:0.7rem 1.4rem;border-radius:8px;border:1px solid ' + color + '33;color:' + color + ';font-size:0.85rem;font-weight:500;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background=\'' + color + '15\'" onmouseout="this.style.background=\'transparent\'">'
+      + '⭐ ' + label + '</a>';
+  }
+
+  fetch('reviews.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var grid = document.getElementById('reviews-grid');
+      var cta = document.getElementById('reviews-cta');
+      if (!grid || !data.reviews || data.reviews.length === 0) {
+        if (grid) grid.parentNode.parentNode.style.display = 'none';
+        return;
+      }
+      // Show up to 6 reviews
+      data.reviews.slice(0, 6).forEach(function(r) {
+        var div = document.createElement('div');
+        div.innerHTML = renderReview(r);
+        grid.appendChild(div.firstChild);
+      });
+      // CTA buttons from review_links in config
+      fetch('config.json').then(function(r2) { return r2.json(); }).then(function(cfg) {
+        if (!cfg.review_links) return;
+        var links = [
+          { key: 'google',   label: 'דרג ב-Google',    color: '#4285F4' },
+          { key: 'facebook', label: 'דרג ב-Facebook',  color: '#1877F2' },
+          { key: 'easy',     label: 'דרג ב-Easy.co.il',color: '#FF6B00' },
+        ];
+        links.forEach(function(l) {
+          if (cfg.review_links[l.key]) {
+            var span = document.createElement('span');
+            span.innerHTML = renderCTAButton(l.label, cfg.review_links[l.key], l.color);
+            cta.appendChild(span.firstChild);
+          }
+        });
+      }).catch(function() {});
+    })
+    .catch(function() {
+      var section = document.getElementById('reviews');
+      if (section) section.style.display = 'none';
+    });
+})();
+</script>
+
+<!-- ─── SCRIPTS ─── -->
+<script>
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('site-theme', next);
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = next === 'dark' ? '🌙' : '☀️';
+  }
+
+  // Apply theme immediately before page renders (prevent flash)
+  (function() {
+    var t = localStorage.getItem('site-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  window.__fadeObserver = observer;
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ─── ISRAEL TIMEZONE + JEWISH HOLIDAY AWARENESS ───
+  (function () {
+    const TZ = 'Asia/Jerusalem';
+    const now = new Date();
+
+    // Current date/time in Israel
+    const dateStr = now.toLocaleDateString('en-CA', { timeZone: TZ }); // YYYY-MM-DD
+    const dowName = new Intl.DateTimeFormat('en-US', { timeZone: TZ, weekday: 'long' }).format(now);
+    const timeParts = new Intl.DateTimeFormat('en-US', {
+      timeZone: TZ, hour: '2-digit', minute: '2-digit', hour12: false
+    }).format(now).split(':');
+    const currentMinutes = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]);
+
+    // 0=Sun … 6=Sat  (matching JS getDay() order)
+    const dowMap = { Sunday:0, Monday:1, Tuesday:2, Wednesday:3, Thursday:4, Friday:5, Saturday:6 };
+    const dow = dowMap[dowName];
+
+    // Hebrew day names indexed by JS weekday (0=Sun)
+    const hebrewDays = ['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+    const dayKeys = ['sun','mon','tue','wed','thu','fri','sat'];
+
+    // Parse "HH:MM–HH:MM" or "HH:MM-HH:MM" into [openMin, closeMin], or null if closed
+    function parseHoursStr(str) {
+      if (!str || str === 'סגור' || str.toLowerCase() === 'closed') return null;
+      const sep = str.includes('–') ? '–' : '-';
+      const parts = str.split(sep);
+      if (parts.length !== 2) return null;
+      function toMin(s) {
+        const [h, m] = s.trim().split(':').map(Number);
+        return h * 60 + (m || 0);
+      }
+      return [toMin(parts[0]), toMin(parts[1])];
+    }
+
+    // Build HOURS from config if available, fallback to defaults
+    let HOURS = [
+      [600, 1200], [600, 1200], [600, 1200], [600, 1200], [600, 1200],
+      [540, 840], null
+    ];
+    // config.json is fetched asynchronously, so we re-read from DOM if available
+    // The status will be re-evaluated after config loads via window.__applyOpenStatus
+    window.__applyOpenStatus = function(cfgHours) {
+      if (cfgHours) {
+        HOURS = dayKeys.map(k => parseHoursStr(cfgHours[k]));
+      }
+      applyStatus(window.__todayHoliday || null);
+    };
+
+    // Highlight today in the hours table
+    const todayHebrew = hebrewDays[dow];
+    document.querySelectorAll('.hours-table tr').forEach(row => {
+      const dayCell = row.querySelector('td:first-child');
+      if (dayCell && dayCell.textContent.trim() === todayHebrew) {
+        row.classList.add('today');
+        const badge = document.createElement('span');
+        badge.className = 'hours-today-badge';
+        badge.textContent = 'היום';
+        dayCell.prepend(badge);
+      }
+    });
+
+    // Render status badge
+    const wrap = document.getElementById('shop-status-wrap');
+    const textEl = document.getElementById('shop-status-text');
+    function setStatus(type, msg) {
+      wrap.className = 'shop-status-wrap ' + type;
+      textEl.textContent = msg;
+    }
+
+    function fmt(min) {
+      return `${String(Math.floor(min/60)).padStart(2,'0')}:${String(min%60).padStart(2,'0')}`;
+    }
+
+    function applyStatus(holidayHebrew) {
+      if (holidayHebrew) {
+        setStatus('status-holiday', 'סגור – ' + holidayHebrew);
+        return;
+      }
+      const todayHours = HOURS[dow];
+      if (!todayHours) {
+        setStatus('status-closed', dow === 6 ? 'סגור – שבת' : 'סגור היום');
+      } else if (currentMinutes < todayHours[0]) {
+        setStatus('status-closed', `סגור · נפתח ב-${fmt(todayHours[0])}`);
+      } else if (currentMinutes < todayHours[1]) {
+        setStatus('status-open', `פתוח · סוגר ב-${fmt(todayHours[1])}`);
+      } else {
+        setStatus('status-closed', 'סגור להיום');
+      }
+    }
+
+    // Fetch Israeli holidays from Hebcal (free public API)
+    const year = now.getFullYear();
+    Promise.all([year, year + 1].map(y =>
+      fetch(`https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=off&nx=off&year=${y}&month=x&ss=on&mf=on&c=off&geo=none&M=on&s=off&i=on`)
+        .then(r => r.json()).then(d => d.items || [])
+    )).then(([a, b]) => {
+      const allHolidays = [...a, ...b];
+      const todayHoliday = allHolidays.find(h =>
+        h.date === dateStr &&
+        h.category === 'holiday' &&
+        (h.subcat === 'major' || h.subcat === 'modern')
+      );
+      window.__todayHoliday = todayHoliday ? (todayHoliday.hebrew || todayHoliday.title) : null;
+      applyStatus(window.__todayHoliday);
+    }).catch(() => {
+      window.__todayHoliday = null;
+      applyStatus(null);
+    }); // fallback if API unavailable
+  })();
+</script>
+
+<!-- Lazy-load gallery videos: only fetch & play when scrolled into view -->
+<script>
+(function() {
+  var videos = document.querySelectorAll('video.lazy-video');
+  if (!videos.length) return;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var video = entry.target;
+      if (entry.isIntersecting) {
+        // Load src from data-src if not already loaded
+        var source = video.querySelector('source[data-src]');
+        if (source) {
+          source.src = source.getAttribute('data-src');
+          source.removeAttribute('data-src');
+          video.load();
+        }
+        video.play().catch(function(){});
+        observer.unobserve(video);
+      }
+    });
+  }, { rootMargin: '200px' });
+  videos.forEach(function(v) { observer.observe(v); });
+})();
+</script>
+
+</body>
+</html>
