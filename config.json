@@ -1,0 +1,55 @@
+{
+  "business_name": "ה.ש. ביגוד",
+  "business_name_en": "HS Clothing",
+  "business_name_he": "ה.ש. ביגוד",
+  "tagline": "Where Experiences Become Wearable",
+  "since_year": 2026,
+  "hero_subtitle": "ה.ש. ביגוד",
+  "about_title": "ה.ש. ביגוד",
+  "about_body": "ברוכים הבאים לה.ש. ביגוד. אנחנו כאן בשבילכם.",
+  "phone": "0522344008",
+  "email": "yarin6038@gmail.com",
+  "address": "סוקולוב 55",
+  "city": "הרצליה",
+  "business_type": "חנות בגדים",
+  "services": [],
+  "stats": [
+    {
+      "value": "0+",
+      "label_he": "שנות ניסיון"
+    },
+    {
+      "value": "∞",
+      "label_he": "לקוחות מרוצים"
+    },
+    {
+      "value": "6",
+      "label_he": "ימים בשבוע"
+    },
+    {
+      "value": "1",
+      "label_he": "מיקום"
+    }
+  ],
+  "colors": {
+    "primary": "#c9a55a",
+    "gold": "#e8c87a",
+    "cream": "#f5f0e6",
+    "accent": "#8b1a1a"
+  },
+  "hours": {
+    "sun": "10:00–20:00",
+    "mon": "10:00–20:00",
+    "tue": "10:00–20:00",
+    "wed": "10:00–20:00",
+    "thu": "10:00–20:00",
+    "fri": "09:00–14:00",
+    "sat": "סגור"
+  },
+  "map_query": "%D7%A1%D7%95%D7%A7%D7%95%D7%9C%D7%95%D7%91%2055%2C%20%D7%94%D7%A8%D7%A6%D7%9C%D7%99%D7%94%2C%20Israel",
+  "calendly_url": null,
+  "instagram_url": null,
+  "instagram_username": null,
+  "facebook_url": null,
+  "gallery": []
+}
