@@ -51,5 +51,7 @@
   "instagram_url": null,
   "instagram_username": null,
   "facebook_url": null,
-  "gallery": []
+  "gallery": [],
+  "client_id": "d0589300-503c-415c-9f37-b847f12d106f",
+  "contact_endpoint": "https://sitemanager-murex.vercel.app/api/contact"
 }
